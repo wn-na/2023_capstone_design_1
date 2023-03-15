@@ -3,16 +3,15 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: clang++ build active file",
-			"command": "/usr/bin/clang++",
+			"label": "C/C++: g++ build active file",
+			"command":  "/usr/bin/g++",
 			"args": [
-				"-fdiagnostics-color=always",
 				"-g",
 				"${fileBasename}", //"*.cpp",
 				"-std=c++14",
 				"-o",
 				"${fileDirname}/Build/${fileBasenameNoExtension}",
-				"`pkg-config", "--libs", "--cflags", "opencv4`", "-std=c++14"
+				"`pkg-config", "opencv4", "--cflags", "--libs", "opencv4`"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -24,7 +23,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "compiler: /usr/bin/clang++"
+			"detail": "compiler: /usr/bin/g++"
 		}
 	]
 }

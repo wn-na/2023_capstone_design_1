@@ -1,1 +1,8 @@
-{}
+{
+    "code-runner.executorMap": {
+        "cpp":"cd $dir && /usr/bin/g++ -g $fileName -DBASE_IMAGE_PATH='\"./../test_images/\"' -std=c++14 -o $dirBuild/$fileNameWithoutExt `pkg-config opencv4 --cflags --libs opencv4` && $dirBuild/$fileNameWithoutExt",
+    },
+    "files.associations": {
+        "filesystem": "cpp"
+    },
+}
