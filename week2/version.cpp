@@ -19,8 +19,10 @@ int main(void)
         return -1;
     }
 
-    cv::namedWindow("image");
+    cv::namedWindow("image", cv::WINDOW_NORMAL);
+    cv::moveWindow("image", 400, 400);
     cv::imshow("image", img);
-    cv::waitKey(0);
+    cv::resizeWindow("image", 200, 200);
+    cv::waitKey(10);
     return 0;
 }
