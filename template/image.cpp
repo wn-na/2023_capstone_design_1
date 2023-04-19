@@ -7,6 +7,9 @@
 #define IMAGE_PATH(PATH) BASE_IMAGE_PATH PATH
 using namespace cv;
 
+#define HEIGHT 512
+#define WIDTH 512
+
 int main()
 {
     Mat img1 = cv::imread(IMAGE_PATH("dog.bmp"));
