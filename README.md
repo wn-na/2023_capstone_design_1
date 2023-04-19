@@ -14,5 +14,15 @@ c++, opencv4
   - draw text, figure
   - video read, save
 - week5
+  - file
+  - trackbar
+  - time
 - week6
+  - brightness
+  - histogram
+  - arithmetic
+  - video add
 - week7
+  - filter
+  - blur
+  - noise
