@@ -26,3 +26,6 @@ c++, opencv4
   - filter
   - blur
   - noise
+- week8
+  - affine
+  - perspective
