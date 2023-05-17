@@ -29,13 +29,11 @@ int main()
     Mat faceOnly;
     copyTo(ref, faceOnly, mask);
 
-    Mat faceOnly_ycrcb, faceOnly_hist;
+    Mat faceOnly_ycrcb;
+    Mat faceOnly_hist;
     cvtColor(faceOnly, faceOnly_ycrcb, COLOR_BGR2YCrCb);
 
     calcHist(&faceOnly_ycrcb, 1, channels, mask, faceOnly_hist, 2, histSize, ranges);
-
-    double histMax;
-    minMaxLoc(faceOnly_hist, 0, &histMax);
 
     Mat result = Mat::zeros(Size(faceOnly_hist.cols * 3, faceOnly_hist.rows * 3), CV_8UC1);
 
@@ -43,12 +41,14 @@ int main()
     {
         for (int i = 0; i <= faceOnly_hist.cols; i++)
         {
-            result.at<uchar>(j * 3, i * 3) = faceOnly_hist.at<float>(j, i) > 0 ? 255 : 0;
+            if (faceOnly_hist.at<float>(j, i))
+            {
+                result.at<uchar>(j * 3, i * 3) = 255;
+            }
         }
     }
 
     imshow("faceOnly", faceOnly);
-    imshow("faceOnly_hist", faceOnly_hist);
     imshow("result", result);
     waitKey();
     destroyAllWindows();
