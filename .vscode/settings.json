@@ -1,6 +1,6 @@
 {
     "code-runner.executorMap": {
-        "cpp":"cd $dir && /usr/bin/g++ -g $fileName -DBASE_IMAGE_PATH='\"./../test_images/\"' -std=c++14 -o $dirBuild/$fileNameWithoutExt `pkg-config opencv4 --cflags --libs opencv4` && $dirBuild/$fileNameWithoutExt",
+        "cpp":"cd $dir && /usr/bin/g++ -g $fileName -DBASE_IMAGE_PATH='\"./../test_images/\"' -DBASE_XML_PATH='\"/opt/homebrew/Cellar/opencv/4.7.0_2/share/opencv4/haarcascades/\"' -std=c++14 -o $dirBuild/$fileNameWithoutExt `pkg-config opencv4 --cflags --libs opencv4` && $dirBuild/$fileNameWithoutExt",
     },
     "files.associations": {
         "filesystem": "cpp",
@@ -77,6 +77,7 @@
         "algorithm": "cpp",
         "functional": "cpp",
         "iterator": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "__memory": "cpp"
     },
 }

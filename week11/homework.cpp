@@ -12,11 +12,11 @@ using namespace std;
 #define WIDTH 512
 
 int delay = 100;
-Mat getCapImage(bool isGrayMode);
+Mat getCapImage(bool isGrayMode, int limit);
 
 int main()
 {
-    Mat src = getCapImage(true);
+    Mat src = getCapImage(true, 10);
 
     Mat bin;
     (int)threshold(src, bin, 0, 255, THRESH_BINARY | THRESH_OTSU);
@@ -41,7 +41,7 @@ int main()
     destroyAllWindows();
 }
 
-Mat getCapImage(bool isGrayMode = true)
+Mat getCapImage(bool isGrayMode = true, int limit = -1)
 {
     VideoCapture cap(0);
     cap.set(CAP_PROP_FRAME_WIDTH, WIDTH);
@@ -63,9 +63,13 @@ Mat getCapImage(bool isGrayMode = true)
             break;
         }
         imshow("src", frame);
-        if (waitKey(delay) == 27)
+        if (waitKey(delay) == 27 || limit == 0)
         {
             break;
+        }
+        if (limit > 0)
+        {
+            limit--;
         }
     }
     resize(frame, frame, Size(WIDTH, HEIGHT), 0, 0, INTER_LINEAR);
